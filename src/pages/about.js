@@ -5,25 +5,27 @@ import HeroSection from "../components/Reuseable/HeroSection"
 import { graphql, useStaticQuery } from 'gatsby'
 import Infoblock from "../components/Reuseable/Infoblock"
 import Dualinfoblock from "../components/Reuseable/Dualinfoblock"
+import Teamphotosection from "../components/About/Teamphotosection"
 
 
-
-const IndexPage = ({data}) => (
+const AboutPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
     <HeroSection 
     img={data.img.childImageSharp.fluid}
-    title="I write Code" 
-    subtitle="LearnCodeOnline.in"
-     heroclass="hero-background"/>
-     <Infoblock heading="About us" />
-     <Dualinfoblock heading="Our Team" />
+    title="About Learn Code Online" 
+    subtitle=""
+     heroclass="about-background"/>
+     <Dualinfoblock heading="A message from CEO" />
+     <Infoblock heading="About Vision" />
+     <Teamphotosection/>
+     
   </Layout>
 )
 
 export const query = graphql`
 {
-  img: file(relativePath: { eq: "heromain.png" }) {
+  img: file(relativePath: { eq: "about.png" }) {
     childImageSharp {
       fluid {
         ...GatsbyImageSharpFluid_tracedSVG
@@ -33,4 +35,4 @@ export const query = graphql`
 }
 `
 
-export default IndexPage
+export default AboutPage
